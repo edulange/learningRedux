@@ -23,3 +23,5 @@ userReducer
 monitora/'escuta' a action _users/login_
 quando o usuário dispachar o userReducer vai pegar o payload e colocar dentro do state.
 
+https://youtu.be/mXI2-gjIZ40?si=w5dL5Ba0KDDEVus8&t=3933
+
