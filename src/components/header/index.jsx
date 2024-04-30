@@ -2,6 +2,8 @@ import { useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import UserActionTypes from '../../redux/user/action-types'
 
+import { loginUser, logoutUser } from '../../redux/user/actions'
+
 // Components
 import Cart from '../cart/index'
 
@@ -14,25 +16,23 @@ function Header() {
 	const { currentUser } = useSelector((rootReducer) => rootReducer.userReducer)
   const dispatch = useDispatch()
 
-  console.log('currentUser :>> ', {currentUser});
-
 	const handleCartClick = () => {
 		setCartIsVisible(true)
 	}
 
   const handleLoginClick = () => {
+    dispatch(loginUser({name: 'Eduardo', email: 'teste@teste'}))
+  }
+  /*const handleLoginClick = () => {
     dispatch({
       // type: 'user/login' acho mais claro assim.
       type: UserActionTypes.LOGIN, 
       payload: {name: "Eduardo", email: 'eduardoandrelange@gmail.com'},
     })
-  }
+  } */
 
   const handleLogoutClick = () => {
-    dispatch({
-      type: UserActionTypes.LOGOUT,
-      payload: null,
-    })
+    dispatch(logoutUser())
   }
 
 	return (
