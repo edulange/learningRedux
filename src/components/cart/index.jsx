@@ -3,7 +3,7 @@ import * as Styles from './styles'
 import CartItem from '../cart-item/index'
 
 import { useSelector } from 'react-redux'
-import rootReducer from '../../redux/root-reducer'
+// import rootReducer from '../../redux/root-reducer'
 
 const Cart = ({ isVisible, setIsVisible }) => {
 	const handleEscapeAreaClick = () => setIsVisible(false)

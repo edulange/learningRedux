@@ -1,6 +1,6 @@
 import { useState, useMemo } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
-import UserActionTypes from '../../redux/user/action-types'
+// import UserActionTypes from '../../redux/user/action-types'
 
 import { loginUser, logoutUser } from '../../redux/user/actions'
 
