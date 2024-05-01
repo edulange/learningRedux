@@ -1,4 +1,4 @@
-import { useState, useMemo } from 'react'
+import { useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 // import UserActionTypes from '../../redux/user/action-types'
 
@@ -9,18 +9,17 @@ import Cart from '../cart/index'
 
 // Styles
 import * as Styles from './styles'
+import { selectProductsCount } from '../../redux/cart/cart.selectors'
 
 function Header() {
 	const [cartIsVisible, setCartIsVisible] = useState(false)
 
 	const { currentUser } = useSelector((rootReducer) => rootReducer.userReducer)
-	const { products } = useSelector((rootReducer) => rootReducer.cartReducer)
+	// const { products } = useSelector((rootReducer) => rootReducer.cartReducer)
+
+	const productsCount = useSelector(selectProductsCount)
 
 	const dispatch = useDispatch()
-
-	const productsCount = useMemo(() => {
-		return products.reduce((acc, current) => acc + current.quantity, 0)
-	}, [products])
 
 	const handleCartClick = () => {
 		setCartIsVisible(true)
@@ -29,13 +28,6 @@ function Header() {
 	const handleLoginClick = () => {
 		dispatch(loginUser({ name: 'Eduardo', email: 'teste@teste' }))
 	}
-	/*const handleLoginClick = () => {
-    dispatch({
-      // type: 'user/login' acho mais claro assim.
-      type: UserActionTypes.LOGIN, 
-      payload: {name: "Eduardo", email: 'eduardoandrelange@gmail.com'},
-    })
-  } */
 
 	const handleLogoutClick = () => {
 		dispatch(logoutUser())
